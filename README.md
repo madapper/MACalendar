@@ -15,7 +15,36 @@ MACalendarMonth *month = [[MACalendarMonth alloc]initWithFrame:frame date:date];
 
 </pre>
 
-The selection style, colour and animation is also available for change, by using the associated enums.
+MACalendar also has the ability to change the look and feel of the days, by applying the images for Selected, Highlighted, Normal and Disabled simply by changing these options in the MACalendarMonth Class. MACalendarDay has a useful function for creating an image with a border radius and rounded edges if required:
 
-Future improvement is to allow these to be set as part of the initialization or set after.
+<pre>
 
+month.imageHighlighted = [self backgroundWithColor:[UIColor colorWithRed:234.0/255.0 green:160.0/255.0 blue:28.0/255.0 alpha:1.000]withTrim:NULL frame:self.bounds rounded:false];
+month.imageNormal = [self backgroundWithColor:[UIColor colorWithRed:241.0/255.0 green:239.0/255.0 blue:237.0/255.0 alpha:1.0]withTrim:NULL frame:self.bounds rounded:false];
+month.imageSelected = [self backgroundWithColor:[UIColor colorWithRed:67.0/255.0 green:138.0/255.0 blue:62.0/255.0 alpha:1.000]withTrim:NULL frame:self.bounds rounded:false];
+month.imageDisabled = [self backgroundWithColor:[UIColor colorWithRed:241.0/255.0 green:239.0/255.0 blue:237.0/255.0 alpha:0.5]withTrim:NULL frame:self.bounds rounded:false];
+</pre>
+
+You can also change the animation option and selection styles using the associated enum:
+
+<b>Animation Options</b>
+
+MACalendarDayAnimationOptionNone // No animation
+MACalendarDayAnimationOptionFlipHorizontalLR // Flips horizontally from left to right
+MACalendarDayAnimationOptionFlipHorizontalRL // Flips horizontally from right to left
+MACalendarDayAnimationOptionFlipVerticalTB // Flips vertically from top to bottom
+MACalendarDayAnimationOptionFlipVerticalBT // Flips vertically from bottom to top
+MACalendarDayAnimationOptionDissolve // Fades old image out and new image in
+
+<b>Selection Types</b>
+
+MACalendarSelectionTypeNone // Allows selecting and deselecting multiple dates one at a time
+MACalendarSelectionTypeIndividual // Allows selecting and deselecting multiple dates by dragging around with one finger on the calendar
+MACalendarSelectionTypeOneAtATime // Allows selecting only one date at a tme
+MACalendarSelectionTypeLinear // Allows selecting dates in a linear fashion fro the originating date by draggin with one finger on the calendar
+
+MACalendar also has a delegate option which can be implemented using the MACalendarMonthDelegate
+
+This only has one method:
+
+-(void)calendarMonthDidSelectDays:(NSArray *)days calendar:(MACalendarMonth *)month;
