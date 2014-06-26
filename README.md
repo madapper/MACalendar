@@ -29,22 +29,27 @@ You can also change the animation option and selection styles using the associat
 
 <b>Animation Options</b>
 
+<pre>
 MACalendarDayAnimationOptionNone // No animation
 MACalendarDayAnimationOptionFlipHorizontalLR // Flips horizontally from left to right
 MACalendarDayAnimationOptionFlipHorizontalRL // Flips horizontally from right to left
 MACalendarDayAnimationOptionFlipVerticalTB // Flips vertically from top to bottom
 MACalendarDayAnimationOptionFlipVerticalBT // Flips vertically from bottom to top
 MACalendarDayAnimationOptionDissolve // Fades old image out and new image in
+</pre>
 
 <b>Selection Types</b>
 
+<pre>
 MACalendarSelectionTypeNone // Allows selecting and deselecting multiple dates one at a time
 MACalendarSelectionTypeIndividual // Allows selecting and deselecting multiple dates by dragging around with one finger on the calendar
 MACalendarSelectionTypeOneAtATime // Allows selecting only one date at a tme
 MACalendarSelectionTypeLinear // Allows selecting dates in a linear fashion fro the originating date by draggin with one finger on the calendar
+</pre>
 
 MACalendar also has a delegate option which can be implemented using the MACalendarMonthDelegate
 
 This only has one method:
-
+<pre>
 -(void)calendarMonthDidSelectDays:(NSArray *)days calendar:(MACalendarMonth *)month;
+</pre>
